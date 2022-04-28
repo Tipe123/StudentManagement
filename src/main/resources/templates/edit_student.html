@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <title>Student Management System</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Student Management System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/students}">Home<span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/students/new}">Create Student</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class="text-center">Edit Student</h1>
+            <div class="card-body">
+                <form  th:action="@{/students/{id}(id = ${student.id})}" th:object = "${student}"  method="post">
+                    <div class="form-group">
+                        <label> Student First Name</label>
+                        <input
+                                type="text"
+                                name="firstName"
+                                th:field = "*{firstName}"
+                                class="form-control"
+                                placeholder="Enter Student First Name"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label> Student Last Name</label>
+                        <input
+                                type="text"
+                                name="lastame"
+                                th:field = "*{lastName}"
+                                class="form-control"
+                                placeholder="Enter Student Last Name"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label> Email </label>
+                        <input
+                                type="text"
+                                name="email"
+                                th:field = "*{email}"
+                                class="form-control"
+                                placeholder="Enter Student email"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label> Student Number</label>
+                        <input
+                                type="text"
+                                name="studentNumber"
+                                th:field = "*{studentNumber}"
+                                class="form-control"
+                                placeholder="Enter Student Number"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label> Course Name</label>
+                        <input
+                                type="text"
+                                name="CourseName"
+                                th:field = "*{CourseName}"
+                                class="form-control"
+                                placeholder="Enter CourseName"
+                        />
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">
+                            submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
